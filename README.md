@@ -1,7 +1,16 @@
-##cakeStrap on OpenShift
+## cakeStrap on OpenShift
 
 Easily deploy cakeStrap (CakePHP + Twitter Bootstrap) on OpenShift
 
+
+## Version Used
+ - cakeStrap v0.5
+    - Twitter Bootstrap v2.1.0
+    - HTML5 Boilerplate v4.0.0
+    - Normalize v1.0.1
+    - Modernizr v2.6.1
+ - CakePHP v2.2
+ - openshift/cakephp-example
 
 
 ## Steps-To-Deploy
