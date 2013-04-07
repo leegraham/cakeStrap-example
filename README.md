@@ -6,7 +6,7 @@ Easily deploy cakeStrap (CakePHP + Twitter Bootstrap) on OpenShift
 
 
 
-STEPS-TO-DEPLOY:
+Steps-To-Deploy:
 ===============
 coming soon...
 
@@ -21,6 +21,7 @@ coming soon...
 
 
 NOTES:
+======
 
 GIT_ROOT/.openshift/action_hooks/deploy:
     This script is executed with every 'git push'.  Feel free to modify this script
