@@ -8,7 +8,7 @@ Easily deploy cakeStrap (CakePHP + Twitter Bootstrap) on OpenShift
 
 Steps-To-Deploy:
 ===============
-coming soon...
+https://github.com/leegraham/cakeStrap-example/wiki
 
 
 
