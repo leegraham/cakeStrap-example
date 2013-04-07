@@ -1,8 +1,9 @@
 Easily deploy CakePHP + Twitter Bootstrap on OpenShift Online
 
-### WARNING: THIS AN EXPERIMENTAL REPO. USE AT YOUR OWN RISK.
 
-### GOAL: 
+
+GOAL:
+=========
 Integrate hugodias/cakeStrap (CakePHP + Twitter Bootstrap) into openshift/cakephp-example for rapid deployment
 
 
