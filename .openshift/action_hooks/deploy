@@ -1,46 +1,18 @@
 #!/bin/bash
-# This deploy hook gets executed after dependencies are resolved and the
-# build hook has been run but before the application has been started back
-# up again.  This script gets executed directly, so it could be python, php,
-# ruby, etc.
-
 set -e
 set -x
 
 if [ -z "$OPENSHIFT_MYSQL_DB_HOST" ]
 then
 echo 1>&2
-    echo "Could not find mysql database. Please run:" 1>&2
-    echo "rhc cartridge add -a $OPENSHIFT_APP_NAME -c mysql-5.1" 1>&2
-    echo "then make a sample commit (add whitespace somewhere) and re-push" 1>&2
+    echo "Could not find a MySQL database. Please add a MySQL cartridge:" 1>&2
+    echo "" 1>&2
+    echo "  rhc cartridge add mysql-5.1 -a $OPENSHIFT_APP_NAME -c mysql-5.1" 1>&2
+    echo "" 1>&2
+    echo "and try pushing again." 1>&2
     echo 1>&2
+    exit 1
 fi
-
-RETRY=60
-while [ $RETRY -gt 0 ] ; do
-    #reload env variables
-    for env_var in $OPENSHIFT_HOMEDIR/.env/*
-    do
-        . $env_var
-    done
-
-    #check for db
-    if [ -n "$OPENSHIFT_MYSQL_DB_HOST" ]
-    then
-	echo "Database server found at $OPENSHIFT_MYSQL_DB_HOST. initializing..."
-        sleep 5
-        break
-    fi
-
-    sleep 1
-    RETRY=$(( $RETRY - 1 ))
-done
-
-if [ -z "$OPENSHIFT_MYSQL_DB_HOST" ]
-then
-    exit 5
-fi
- 
 
 # Confirm database exists, if not create it
 if ! /usr/bin/mysql -u "$OPENSHIFT_MYSQL_DB_USERNAME" --password="$OPENSHIFT_MYSQL_DB_PASSWORD" -h "$OPENSHIFT_MYSQL_DB_HOST" --port "$OPENSHIFT_MYSQL_DB_PORT" -e "select * from posts;" "$OPENSHIFT_APP_NAME" > /dev/null 2>&1
