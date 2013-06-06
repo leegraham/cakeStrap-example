@@ -15,14 +15,21 @@ Easily deploy cakeStrap (CakePHP + Twitter Bootstrap) on OpenShift
 
 ## Steps-To-Deploy
 
-https://github.com/leegraham/cakeStrap-example/wiki
+### From the OpenShift Web UI
 
+See these instructions from the wiki: https://github.com/leegraham/cakeStrap-example/wiki
+
+### From the Command Line
+
+Simply run the following:
+
+`rhc create-app cakestrap php-5.3 mysql-5.1 --from-code https://github.com/leegraham/cakeStrap-example.git -p <password>`
 
 ## Notes
 
 CakePHP Security:
-    If you're doing more than just 'playing' be sure to edit app/config/core.php
-    and modify Security.salt and Security.cipherSeed.
+    If you're doing more than just 'playing' be sure to edit `app/config/core.php`
+    and modify `Security.salt` and `Security.cipherSeed`.
 
 
 ## Questions / Bugs
